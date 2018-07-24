@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"Benders Decomposition\"\nauthor: \"David Cardoner & Arnau Mercader\"\ndate: \"9 de junio de 2018\"\noutput:\n  html_document: default\n  pdf_document: default\n---\n\n```{r setup, include=FALSE,warning=FALSE,message=FALSE}\nknitr::opts_chunk$set(echo = TRUE)\n```\n\n## Formulación del Máster y Subproblem\n\nUn método para poder resolver problemas de gran dimensión es el método de la descomposición de Benders. Esta técnica nos permite separar problemas de elevada dimensión en dos grupos, uno formado por las variables dificiles (impiden que el problema sea separable) y otro formado por las variables fáciles. Identificaremos las variables \"dificiles\" como las que unen los distintos escenarios del problema.\n\n## Formulación del problema del cajero automático\n\n\\begin{eqnarray}\n(P) min cx + \\sum_{i=1}^{s}p_{i}qy_{i} \\nonumber \\\\\ns.to l &\\le& x &\\le& u \\nonumber \\\\\nx + y_{i} &\\geq& \\xi_{i} i = 1, ..., s \\nonumber \\\\\ny_{i} \\geq 0\n\\end{eqnarray}",
+    "created" : 1528541608204.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "239411272",
+    "id" : "B6D7B073",
+    "lastKnownWriteTime" : 1528545402,
+    "last_content_update" : 1528545412067,
+    "path" : "C:/Users/David/Desktop/Benders_algorithm.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

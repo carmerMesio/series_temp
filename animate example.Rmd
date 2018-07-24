@@ -1,0 +1,22 @@
+---
+title: "Untitled"
+author: "David Cardoner & Arnau Mercader"
+date: "23 de mayo de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Animated figures
+
+```{r,  fig.show='animate', fig.width=5, fig.height=4}
+library(ggplot2)
+for (count in 1:4) {
+  n <- 10 ^ count
+  x <- data.frame(var = rnorm(n))
+  print(ggplot(x) +
+    geom_histogram(aes(x = var), binwidth = 0.2) +
+    ggtitle(paste('n =', n)))
+}

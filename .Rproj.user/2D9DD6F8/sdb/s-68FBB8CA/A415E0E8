@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#\n# This is the user-interface definition of a Shiny web application. You can\n# run the application by clicking 'Run App' above.\n#\n# Find out more about building applications with Shiny here:\n# \n#    http://shiny.rstudio.com/\n#\n\nlibrary(shiny)\n\nshinyUI(\npageWithSidebar(\n  headerPanel(\"Import CSV data\"),\n  sidebarPanel(\n    fileInput('dataset', 'Choose file to upload',\n              accept = c(\n                'text/csv',\n                'text/comma-separated-values',\n                'text/tab-separated-values',\n                'text/plain',\n                '.csv',\n                '.tsv'\n              )\n    ),\n    tags$hr(),\n    checkboxInput('header', 'Header', TRUE),\n    radioButtons('sep', 'Separator',\n                 c(Comma=',',\n                   Semicolon=';',\n                   Tab='\\t'),\n                 ','),\n    radioButtons('quote', 'Quote',\n                 c(None='',\n                   'Double Quote'='\"',\n                   'Single Quote'=\"'\"),\n                 '\"'),\n    uiOutput(\"toCol\"),\n  actionButton(inputId = \"loadbutton\", label = \"Load Data\")\n),\n\nmainPanel(\ndataTableOutput(\"datamanip\")\n)\n))",
+    "created" : 1528405456821.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "281655692",
+    "id" : "A415E0E8",
+    "lastKnownWriteTime" : 1528408511,
+    "last_content_update" : 1528408511130,
+    "path" : "C:/Users/David/Desktop/shiny_csv_reader/ui.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

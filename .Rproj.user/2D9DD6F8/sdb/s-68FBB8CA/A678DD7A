@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#\n# This is the server logic of a Shiny web application. You can run the \n# application by clicking 'Run App' above.\n#\n# Find out more about building applications with Shiny here:\n# \n#    http://shiny.rstudio.com/\n#\n\nlibrary(shiny)\nlibrary(data.table)\n\nshinyServer(function(input, output) {\n\nload_table <- reactive({\n  # input$file1 will be NULL initially. After the user selects\n  # and uploads a file, it will be a data frame with 'name',\n  # 'size', 'type', and 'datapath' columns. The 'datapath'\n  # column will contain the local filenames where the data can\n  # be found.\n  inFile <- input$dataset\n  \n  if (is.null(inFile)){\n    return(NULL)}\n  else {\n    read.csv(inFile$datapath, header = input$header,\n             sep = input$sep, quote = input$quote)}\n})\n\noutput$toCol <- renderUI({\n  df <-load_table()\n  if (is.null(df)) return(NULL)\n  \n  items=names(df)\n  names(items)=items\n  selectInput(\"to\", \"To:\",items)\n  \n})\n\noutput$datamanip <- renderDataTable({\n  dat <- load_table()\n  #print(dat)\n  dat <- dat[,input$to]\n  print(dat)\n  dat\n})\n\n# \n# filtered <- reactive({\n#   df <- load_table()\n#   print(df)\n  # Show only selected columns\n  # if (!is.null(input$columns)) {\n  #   stopifnot(all(input$columns %in% names(df)))\n  #   df <- df[,input$columns]\n  # }\n  \n  # apply other filters...\n  \n  # df\n\n# output$data <- renderDataTable({\n#     load_table()\n#   })\n})",
+    "created" : 1528405457380.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4102739528",
+    "id" : "A678DD7A",
+    "lastKnownWriteTime" : 1528408863,
+    "last_content_update" : 1528408863281,
+    "path" : "C:/Users/David/Desktop/shiny_csv_reader/server.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
